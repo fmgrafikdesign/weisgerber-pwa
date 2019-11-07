@@ -1,15 +1,17 @@
 {
   "name": "mithril-ts-example",
   "version": "1.0.0",
-  "description": "Mithril TypeScript Example",
+  "description": "Albert Weisgerber PWA",
   "scripts": {
     "compile": "browserify --debug src/main.ts -p [ tsify --project src/tsconfig.json ] -o public/js/app.js",
     "build": "browserify src/main.ts -p [ tsify --project src/tsconfig.json ] | uglifyjs -cm -o public/js/app.js",
     "clean": "rm -f public/js/app.js",
-    "start": "budo src/main.ts:js/app.js -p 3000 --dir public --live=*.{html,js,css} -- --debug -p [ tsify --project src/tsconfig.json ]"
+    "start": "budo src/main.ts:js/app.js -p 3000 --dir public --live=*.{html,js,css,png} -- --debug -p [ tsify --project src/tsconfig.json ]"
   },
-  "license": "MIT",
   "dependencies": {
+    "@types/mapbox-gl": "^1.5.0",
+    "geolib": "^3.1.0",
+    "mapbox-gl": "^1.5.0",
     "mithril": "^2.0.4"
   },
   "devDependencies": {

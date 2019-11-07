@@ -1,0 +1,33 @@
+/* Test */
+
+html, body, .app {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-window {
+  flex-grow: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.padded {
+  padding: 1rem
+}
+
+a {
+  color: initial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.d-block {
+  display: block !important;
+}

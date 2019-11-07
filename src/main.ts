@@ -1,11 +1,26 @@
-// App entry point
+import m from "mithril";
+import Appsettings from "./settings/appsettings";
+import Routes from "./settings/routes";
+import State from "./state";
+import Map from "./views/map/Map";
 
-import m from 'mithril';
-import Home from './components/Home';
-import About from './components/About';
+if(State.points_of_interest.length === 0) {
+    // First load points of interest, then populate the map with them.
+    State.load_pois()
+        .then(() => {
+            Map.initMarkers();
+        });
+}
 
-// Set up routing by connecting components to routes
-m.route(document.body, '/', {
-  '/': Home,
-  '/about': About
-});
+// Compute routes
+const arrayToObject = (array: any) => {
+    if(!Array.isArray(array) ) array = [];
+    return array.reduce((obj: any, item: any) => {
+        obj[item.route] = item;
+        return obj;
+    }, {});
+};
+
+const computedRoutes = arrayToObject(Routes);
+
+m.route(document.body, "/", computedRoutes);

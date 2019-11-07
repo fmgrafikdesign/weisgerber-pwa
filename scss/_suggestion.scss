@@ -1,0 +1,36 @@
+.suggestion {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.suggestion-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: .375rem;
+  padding: 1rem;
+  position:relative;
+  display: block;
+}
+
+.hide-suggestion {
+  display: none;
+}
+
+.suggestion-title {
+  padding-right: 8px;
+}
+
+.close-suggestion
+{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: black;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
