@@ -4,7 +4,7 @@ import Appsettings from "../../settings/appsettings";
 
 const PointsOfInterest = {
     view: () => {
-        const pois = State.points_of_interest;
+        const pois = State.PointsOfInterest;
         if (pois.length === 0) {
             return;
         }

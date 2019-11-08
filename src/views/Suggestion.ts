@@ -4,6 +4,7 @@ import State from "../state";
 import SuggestionCard from "./SuggestionCard";
 import Appsettings from "../settings/appsettings";
 import * as Mithril from "mithril";
+import PointOfInterest from "../models/PointOfInterest";
 
 /* Difference between hiding and dismissing:
 Dismissing requires active user-interaction by clicking on either the card or the x of the card.
@@ -22,8 +23,10 @@ const Suggestion = {
 
             Suggestion.showSuggestion(id);
         },
-        showSuggestion: (id: any) => {
-            if (id) Suggestion.id = id;
+        showSuggestion: (id: number) => {
+            if (id) {
+                Suggestion.id = id;
+            }
             Suggestion.show = true;
             console.log(Suggestion.id, Suggestion.show);
             m.redraw();
@@ -42,12 +45,11 @@ const Suggestion = {
         id: -1,
         dismissed: false,
         view: (vnode: Mithril.Vnode) => {
-            const poi = State.points_of_interest.find((poi:any) => {
-                return parseInt(poi.id) === Suggestion.id;
-            });
+            // console.log("viewing sugegestio with id" + Suggestion.id);
+            const poi = State.getPointOfInterestById(Suggestion.id);
 
             if (!poi) { return; }
-
+            console.log(poi.position);
             return m('.suggestion', {class: Suggestion.show ? 'show-suggestion' : 'hide-suggestion'},
                 m(SuggestionCard, {
                         dismiss: Suggestion.dismissSuggestion,
@@ -55,7 +57,7 @@ const Suggestion = {
                             m.route.set(Appsettings.poi_route + '/' + Suggestion.id);
                             Suggestion.dismissSuggestion();
                         },
-                        poi: poi
+                        poi
                     }
                 )
             )

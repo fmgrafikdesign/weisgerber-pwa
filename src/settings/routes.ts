@@ -3,7 +3,7 @@ import Layout from "../views/Layout";
 import About from "../views/home/Home";
 import Map from "../views/map/Map";
 import PointsOfInterest from "../views/points_of_interest/PointsOfInterest";
-import PointOfInterest from "../views/point_of_interest/PointOfInterest";
+import SinglePointOfInterestPage from "../views/point_of_interest/SinglePointOfInterestPage";
 import Imprint from "../views/imprint/Imprint";
 import PrivacyPolicy from "../views/privacy_policy/PrivacyPolicy";
 import Appsettings from "./appsettings";
@@ -38,7 +38,7 @@ const Routes = [
     {
         name: 'Stele',
         render: (parameters: any) => {
-            return m(Layout, m(PointOfInterest, {poi_id: parameters.attrs.poi_id}));
+            return m(Layout, m(SinglePointOfInterestPage, {poi_id: parseInt(parameters.attrs.poi_id)}));
         },
         route: Appsettings.poi_route + '/:poi_id'
     },

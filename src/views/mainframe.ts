@@ -6,6 +6,8 @@ import gps from "../gps";
 import Suggestion from "./Suggestion";
 mapboxgl.accessToken = Appsettings.map.accessToken;
 
+gps.initialize();
+
 const Mapsettings = Appsettings.map;
 
 // const myMap = new Map();
@@ -35,8 +37,8 @@ const MapWrapper: m.Component<Attrs> = {
                 Map.initMapBox(vnode.dom);
             },
             style: {display: vnode.attrs.showMap ? '' : 'none'}
-        })
+        });
     }
-}
+};
 
 export default Mainframe;
