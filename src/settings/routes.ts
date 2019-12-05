@@ -4,11 +4,15 @@ import About from "../views/home/Home";
 import Map from "../views/map/Map";
 import PointsOfInterest from "../views/points_of_interest/PointsOfInterest";
 import SinglePointOfInterestPage from "../views/point_of_interest/SinglePointOfInterestPage";
-import Imprint from "../views/imprint/Imprint";
 import PrivacyPolicy from "../views/privacy_policy/PrivacyPolicy";
 import Appsettings from "./appsettings";
-import Library from "../views/library/Library";
+import ImageArchive from "../views/library/ImageArchive";
 import Publication from "../views/publikation/Publication";
+import Library from "../views/library/Library";
+import Texte from "../views/library/Texte";
+import SingleTextPage from "../views/library/SingleTextPage";
+import Interviews from "../views/library/Interviews";
+import Imprint from "../views/imprint/Imprint";
 
 const Routes = [
     {
@@ -16,7 +20,7 @@ const Routes = [
         render: () => {
             return m(Layout, m(About));
         },
-        route: '/',
+        route: '/start',
         show_in_bottom_nav : true
     },
     {
@@ -40,7 +44,14 @@ const Routes = [
         render: (parameters: any) => {
             return m(Layout, m(SinglePointOfInterestPage, {poi_id: parseInt(parameters.attrs.poi_id)}));
         },
-        route: Appsettings.poi_route + '/:poi_id'
+        route: Appsettings.poi_route + ':poi_id'
+    },
+    {
+        name: 'Text',
+        render: (parameters: any) => {
+            return m(Layout, m(SingleTextPage, {text_id: parseInt(parameters.attrs.text_id)}));
+        },
+        route: Appsettings.text_route + ':text_id'
     },
     {
         name: 'Impressum',
@@ -64,11 +75,32 @@ const Routes = [
         route: '/bibliothek',
     },
     {
-        name: 'Publikation',
+        name: 'Bildarchiv',
+        render :  () => {
+            return m(Layout, m(ImageArchive));
+        },
+        route: '/bibliothek/bildarchiv',
+    },
+    {
+        name: 'Texte',
+        render :  () => {
+            return m(Layout, m(Texte));
+        },
+        route: '/bibliothek/texte',
+    },
+    {
+        name: 'Aktuell',
         render :  () => {
             return m(Layout, m(Publication));
         },
-        route: '/publikation',
+        route: '/aktuell',
+    },
+    {
+        name: 'Interviews',
+        render :  () => {
+            return m(Layout, m(Interviews));
+        },
+        route: '/bibliothek/interviews',
     }
 ];
 

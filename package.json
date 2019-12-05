@@ -9,12 +9,14 @@
     "start": "budo src/main.ts:js/app.js -p 3000 --ssl --dir public --live=*.{html,js,css,png} -- --debug -p [ tsify --project src/tsconfig.json ]"
   },
   "dependencies": {
+    "@glidejs/glide": "github:glidejs/glide",
     "@types/mapbox-gl": "^1.5.0",
     "geolib": "^3.1.0",
     "mapbox-gl": "^1.5.0",
     "mithril": "^2.0.4"
   },
   "devDependencies": {
+    "@types/glidejs": "^1.0.30",
     "@types/mithril": "^2.0.0",
     "browserify": "^16.5.0",
     "budo": "^11.6.3",

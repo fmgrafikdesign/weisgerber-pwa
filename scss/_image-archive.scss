@@ -1,0 +1,60 @@
+.image-archive {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -8px; /* Adjustment for the gutter */
+  width: 100%;
+}
+
+.archive-image {
+  height: 250px;
+  margin: 0 8px 8px 0; /* Some gutter */
+}
+
+.image-archive-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail-image {
+  padding: 2px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 33.33333%;
+}
+
+.image-overlay {
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-image-wrapper {
+  left: 0;
+  right: 0;
+  margin: 2rem auto 2rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: 80%;
+  overflow-y: auto;
+}
+
+.overlay-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-caption, .image-description {
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+.image-description {
+  font-size: .65rem;
+  opacity: .7;
+  white-space: pre-wrap;
+}

@@ -38,7 +38,7 @@ const gps = {
         };
         const poiPositions = pois.map((poi: PointOfInterest) => {
             return {
-                id: poi.id,
+                id: poi.internal_id,
                 latitude: poi.position.lat,
                 longitude: poi.position.lng
             };
@@ -47,16 +47,16 @@ const gps = {
         // Find the closest POI
         const closest = findNearest(currentPosition, poiPositions);
         // @ts-ignore
-        const closestPOI: PointOfInterest = State.getPointOfInterestById(closest.id);
+        const closestPOI: PointOfInterest = State.getPointOfInterestByInternalId(closest.id);
         const distance = getDistance(closest, currentPosition);
 
         // @ts-ignore
-        console.log('You are closest (' + distance + 'm) to POI with ID #' + closestPOI.id);
+        console.log('You are closest (' + distance + 'm) to POI with ID #' + closestPOI.internal_id);
 
         // If closer than the threshold, suggest a card
         if (distance < closestPOI.radius) {
-            console.log('suggesting card', closestPOI.id, '...');
-            Suggestion.suggest(closestPOI.id);
+            console.log('suggesting card', closestPOI.internal_id, '...');
+            Suggestion.suggest(closestPOI.internal_id);
         }
     },
     onLocationChange: (position: Position) => {

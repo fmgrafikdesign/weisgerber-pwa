@@ -12,6 +12,10 @@ if(State.PointsOfInterest.length === 0) {
         });
 }
 
+if(State.Texte.length === 0) {
+    State.load_texte();
+}
+
 // Compute routes
 const arrayToObject = (array: any) => {
     if (!Array.isArray(array) ) { array = []; }
@@ -23,4 +27,4 @@ const arrayToObject = (array: any) => {
 
 const computedRoutes = arrayToObject(Routes);
 
-m.route(document.body, "/", computedRoutes);
+m.route(document.body, "/start", computedRoutes);

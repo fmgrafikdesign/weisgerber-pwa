@@ -1,4 +1,6 @@
 @import "reset";
+@import '../node_modules/@glidejs/glide/src/assets/sass/glide.core';
+@import '../node_modules/@glidejs/glide/src/assets/sass/glide.theme';
 @import 'font-faces';
 @import "base";
 @import 'fonts';
@@ -7,3 +9,4 @@
 @import 'map';
 @import 'point-of-interest';
 @import 'suggestion';
+@import 'image-archive';

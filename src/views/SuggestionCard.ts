@@ -10,12 +10,18 @@ interface Attrs {
 const SuggestionCard: m.Component<Attrs> = {
     view: (vnode) => {
         const poi = vnode.attrs.poi;
-        if(!poi) { return; }
-        return m('.suggestion-card', { onclick: vnode.attrs.onclick }, [
-            // poi.media.medium ? m('img.suggestion-image', {src: poi.media.medium}) : null,
-            m('h3.suggestion-title', poi.title),
-            m('.suggestion-excerpt', m.trust(poi.excerpt)),
-            m('.close-suggestion', { onclick: vnode.attrs.dismiss })
+        if (!poi) {
+            return;
+        }
+        return m('.suggestion-card.d-flex.position-relative', {onclick: vnode.attrs.onclick}, [
+            poi.gallery[0] ? m('.suggestion-image-background', {style: ("background-image: url(" + poi.gallery[0].url + ")" )}) : null,
+            // m('h6.suggestion-pretitle', "Nahe Stele:"),
+            [m('.suggestion-card-content', [
+                m('h3.suggestion-title', poi.title),
+                m('.suggestion-excerpt', m.trust(poi.excerpt)),
+                m('.close', {onclick: vnode.attrs.dismiss})
+            ])
+            ]
         ]);
     }
 };

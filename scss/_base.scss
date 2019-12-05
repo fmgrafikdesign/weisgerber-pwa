@@ -5,6 +5,10 @@ html, body, .app {
   overflow-y: hidden;
 }
 
+html {
+  font-size: 16px;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -20,8 +24,25 @@ html, body, .app {
   padding: 1rem
 }
 
+.t-padding {
+  padding-top: 1rem;
+}
+
+.x-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 a {
   color: initial;
+}
+
+i {
+  font-style: italic;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 * {
@@ -30,4 +51,105 @@ a {
 
 .d-block {
   display: block !important;
+}
+
+.img-fluid {
+  max-width: 100%;
+  display: block;
+}
+
+.glide__slide {
+  //width: auto !important;
+}
+
+.glide, .gallery-wrapper {
+  height: 40vh;
+  position: relative;
+}
+
+.glide__slides {
+  background-color: #666;
+}
+
+.parent-height {
+  height: 100%;
+}
+
+.glide__track {
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.overflow-x-auto {
+  overflow-x: auto
+}
+
+.slide {
+  display: inline-block;
+  background-color: #fff;
+  padding-right: .6rem;
+}
+
+.slide:last-of-type {
+  padding-right: 0;
+}
+
+.carousel {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+}
+
+h1, .text-title {
+  margin-bottom: 1rem;
+}
+
+.list-link {
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  transition: all .2s ease;
+}
+
+.list-link:first-of-type {
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.list-link:hover, .list-link:active, .list-link:focus {
+  background-color: #d6e6df;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

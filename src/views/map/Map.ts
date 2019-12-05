@@ -10,21 +10,24 @@ interface Attrs {
     mapObject: mapboxgl.Map;
 }
 
+const forestColor = "#d6e6df";
+
 class Map {
     public static mapObject: mapboxgl.Map;
     public static initializedMarkers: boolean = false;
 
     static initMapBox (dom: any) {
         Map.mapObject = new mapboxgl.Map({
-            center: [7.1122986, 49.279558],
+            center: [7.1152986, 49.277558],
             container: dom,
             maxZoom: 22,
             minZoom: 5,
             style: 'mapbox://styles/mapbox/streets-v11',
-            zoom: 13
+            zoom: 14
         });
-        Map.mapObject.on('load', function () {
-
+        Map.mapObject.on('load', () => {
+            Map.mapObject.setPaintProperty("landuse", 'fill-color', forestColor);
+            Map.mapObject.setPaintProperty("national-park", 'fill-color', forestColor);
         });
 
         Map.mapObject.addControl(new mapboxgl.GeolocateControl({
@@ -61,7 +64,8 @@ class Map {
                     type: 'Point'
                 },
                 properties: {
-                    id: poi.id,
+                    content: poi.id,
+                    id: poi.internal_id,
                     title: poi.title
                 },
                 type: "Feature"
@@ -77,8 +81,12 @@ class Map {
 
         geojson.features.forEach((marker: any) => {
             const el = document.createElement('div');
-            el.className = 'marker';
+            const graphic = document.createElement('div');
+            el.className = "marker-wrapper";
+            graphic.className = 'marker';
             el.id = marker.properties.id;
+            el.innerText = marker.properties.content;
+            el.appendChild(graphic);
             el.addEventListener('click', (e) => {
                 // console.log('clicked marker #' + el.id);
                 Suggestion.showSuggestion(parseInt(el.id));

@@ -16,11 +16,16 @@ const Suggestion = {
         show: false,
         suggest: (id: number) => {
             // If it's the same id as currently and it's already being show, abort
-            if (Suggestion.id === id && Suggestion.show) return;
+            if (Suggestion.id === id && Suggestion.show) { return; }
 
             // If it's the same id as before and it has been dismissed, abort
-            if (Suggestion.id === id && Suggestion.dismissed) return;
+            if (Suggestion.id === id && Suggestion.dismissed) { return; }
 
+            // Suggest otherwise.
+            // Vibrate to notify of automatic suggestion.
+            if ("vibrate" in navigator) {
+                navigator.vibrate(500);
+            }
             Suggestion.showSuggestion(id);
         },
         showSuggestion: (id: number) => {
@@ -28,7 +33,7 @@ const Suggestion = {
                 Suggestion.id = id;
             }
             Suggestion.show = true;
-            console.log(Suggestion.id, Suggestion.show);
+            // console.log(Suggestion.id, Suggestion.show);
             m.redraw();
         },
         hideSuggestion: () => {
@@ -40,27 +45,25 @@ const Suggestion = {
             Suggestion.hideSuggestion();
 
             // Stop the click from bubbling.
-            if(e) { e.stopPropagation(); }
+            if (e) { e.stopPropagation(); }
         },
         id: -1,
         dismissed: false,
         view: (vnode: Mithril.Vnode) => {
-            // console.log("viewing sugegestio with id" + Suggestion.id);
-            const poi = State.getPointOfInterestById(Suggestion.id);
+            const poi = State.getPointOfInterestByInternalId(Suggestion.id);
 
             if (!poi) { return; }
-            console.log(poi.position);
             return m('.suggestion', {class: Suggestion.show ? 'show-suggestion' : 'hide-suggestion'},
                 m(SuggestionCard, {
                         dismiss: Suggestion.dismissSuggestion,
                         onclick: () => {
-                            m.route.set(Appsettings.poi_route + '/' + Suggestion.id);
+                            m.route.set(Appsettings.poi_route + Suggestion.id);
                             Suggestion.dismissSuggestion();
                         },
                         poi
                     }
                 )
-            )
+            );
         }
     }
 ;

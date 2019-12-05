@@ -6,10 +6,11 @@ class GalleryImage {
         public alt: string,
         public description: string,
         public caption: string,
-        public sizes: object,
+        public sizes: any,
+        public width: number,
+        public height: number
     ) {
     }
-
 }
 
 export default GalleryImage;

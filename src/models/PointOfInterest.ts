@@ -1,7 +1,7 @@
 import GalleryImage from "./GalleryImage";
 
 class PointOfInterest {
-    constructor(public id: number,
+    constructor(public internal_id: number,
                 public title: string,
                 public excerpt: string,
                 public content: string,
@@ -9,7 +9,8 @@ class PointOfInterest {
                 public position: {lat: number, lng: number},
                 public radius: number,
                 public icon: string,
-                public texte: []) { }
+                public texte: [],
+                public id: number) { }
 }
 
 export default PointOfInterest;

@@ -1,11 +1,19 @@
 html, body {
-  font-family: 'Nunito', -apple-sans-serif, -apple-system, sans-serif;
+  //font-family: 'Nunito', -apple-sans-serif, -apple-system, sans-serif;
+  //font-family: 'Amiri', -apple-sans-serif, -apple-system, sans-serif;
+  font-family: 'Vollkorn', -apple-sans-serif, -apple-system, sans-serif;
   font-size: 18px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
 }
 
 p {

@@ -3,7 +3,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 0 .5rem 1rem .5rem;
   z-index: 10;
 }
 
@@ -11,9 +11,37 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: .375rem;
-  padding: 1rem;
-  position:relative;
-  display: block;
+  padding: 0;
+  position: relative;
+  font-size: .75rem;
+  line-height: 1.4;
+  box-shadow: rgba(0, 0, 0, .15) 0px 8px 10px 0px;
+  height: 30vh;
+  overflow: hidden;
+}
+
+.suggestion-card-content::after {
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .9) 85%);
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  height: 30%;
+}
+
+.suggestion-image-background {
+  background-size: cover;
+  background-position: center center;
+  flex-basis: 33%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.suggestion-card-content {
+  position: relative;
+  padding: .75rem;
 }
 
 .hide-suggestion {
@@ -21,16 +49,51 @@
 }
 
 .suggestion-title {
-  padding-right: 8px;
+  padding-right: 12px;
+  margin-bottom: .2rem;
+  font-size: 1.05rem;
 }
 
-.close-suggestion
-{
+.close {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: black;
-  width: 15px;
-  height: 15px;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0.35;
   cursor: pointer;
+  transition: all .2s ease;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 19px;
+  top: 6px;
+  content: ' ';
+  height: 27px;
+  width: 2px;
+  background-color: #333;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
+@media screen and (min-width: 768px) {
+  .suggestion-card {
+    font-size: .85rem;
+    height: auto;
+  }
+  .suggestion-title {
+    font-size: 1.2rem;
+  }
 }

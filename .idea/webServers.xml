@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="46ba21d0-af1a-4c54-852a-be23ae1fe966" name="all-inkl" url="http://fmgrafikdesign.de">
+        <fileTransfer host="fmgrafikdesign.de" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="6b1bfece-40e1-4178-91c0-0d323a06278f" name="Production" url="http://fmgrafikdesign.de">
+        <fileTransfer host="fmgrafikdesign.de" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
